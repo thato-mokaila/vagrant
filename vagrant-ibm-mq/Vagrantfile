@@ -10,6 +10,13 @@ Vagrant.configure(2) do |config|
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
 
+  # config.vbguest.iso_path = "#{ENV['HOME']}/Downloads/VBoxGuestAdditions.iso"
+  # or an URL:
+  config.vbguest.iso_path = "http://download.virtualbox.org/virtualbox/5.0.16/VBoxGuestAdditions_5.0.16.iso"
+  # or relative to the Vagrantfile:
+  # config.vbguest.iso_path = File.expand_path("../relative/path/to/VBoxGuestAdditions.iso", __FILE__)
+    
+  config.vbguest.auto_update = false
   config.ssh.username = 'root'
   config.ssh.password = 'vagrant'
   config.ssh.insert_key = 'true'
@@ -42,7 +49,7 @@ Vagrant.configure(2) do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  # config.vm.synced_folder "../data", "/vagrant_data"
+  config.vm.synced_folder "../../installs", "/tmp"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -69,35 +76,7 @@ Vagrant.configure(2) do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
-   config.vm.provision "shell", inline: <<-SHELL
-        chec_solo=/usr/bin/chef-solo
-
-        # Are we on a vanilla system?
-        if ! type "$chec_solo" > /dev/null; then
-
-            # update system to latest
-            yum -y update
-
-            yum -y install gcc ruby-devel rubygems git
-
-            # Chef Client
-            curl -L https://www.opscode.com/chef/install.sh | sudo bash
-
-        fi &&
-
-        # goto working directory
-        cd /var && mkdir -p /tmp/mq_install/scripts
-
-        # check out cookbooks into working directory
-        git clone https://github.com/thato-mokaila/chef.git
-        chmod -R 755 ./chef && cd ./chef/ 
-        cp -r ./mq/scripts/ /tmp/mq_install/scripts
-        cp ./mq/scripts/functions.sh /usr/local/sbin
-        cp ./mq/scripts/mqconfig.sh /usr/local/sbin
-        cp ./mq/config/qm.ini.tmp /tmp/mq_install
-        cp ./mq/config/config.mqsc /tmp/mq_install
-
-        # run chef to prep the system
-        "$chec_solo" -c solo.rb -j node.json
-   SHELL
+  config.vm.provision "shell" do |s|
+    s.path = "../scripts/mq_install_init.sh"      
+  end
 end
