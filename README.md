@@ -9,8 +9,13 @@
 * You must have  vagrant installed and configured.
 * Make sure you have executed the following vagrant command `$ vagrant plugin install vagrant-vbguest`.
 * You must have git installed and configured on your host machine.
-* Adjust the configuration `config.vm.synced_folder` to suite your need. This property must be mapped to folder on your host that will be shared with your guest. Then you will place your version of mq source installation archive in this folder on your host so that it is accessible from your guest vm.
+* Adjust the configuration `config.vm.synced_folder` to suite your need. This property must be mapped to folder on your host that will be shared with your guest. Then you will place your version of mq source installation archive in this folder on your host so that it is accessible from your guest vm. 
 
+> **Note:**
+
+> - asas asas as asasas
+> - asas as asasas asa adsfad fdsfdsfa ds
+> - sdasdas asd asdsa dsfdfdfdfldkfd fadf djfjjdksfds.
 
 
 ### Checing out vagrant files
