@@ -4,11 +4,13 @@
 # wget https://opscode-omnibus-packages.s3.amazonaws.com/el/6/x86_64/chef-server-11.0.10-1.el6.x86_64.rpm
 # rpm -Uvh chef-server-11.0.10-1.el6.x86_64.rpm
 
-pwd
-whoami
-echo "shell init script ran successfull!"
+echo "# *************************************** #"
+echo "# working directory: `pwd`"
+echo "# *************************************** #"
+echo "# executing user: `whoami`"
+echo "# *************************************** #"
 
-#chef_binary=/usr/local/bin/chef-solo
+##chef_binary=/usr/local/bin/chef-solo
 #chec_solo=/usr/bin/chef-solo
 #
 ## Are we on a vanilla system?
