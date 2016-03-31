@@ -34,6 +34,8 @@ The following vagrant commands describes a typical process of using the vm. The 
 
 ### Connection Details
 
+#### Use the following parameters to configure MQ explorer
+
 * Server hostname/ip address: (see vagrant ssh command above)
 * Server connection channel: SYSTEM.DEF.SVRCONN
 * Server connection port: 1414
@@ -49,4 +51,4 @@ The following vagrant commands describes a typical process of using the vm. The 
 
 ### License and Authors
 
-##### Authors: Thato Mokaila thato@eltengroup.co.za
+Authors: Thato Mokaila thatom@eltengroup.co.za
