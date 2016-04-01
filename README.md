@@ -14,11 +14,11 @@
   - comment line # 139 inside ‘websphere-mq’ recipe   
 > - Make sure `config.vm.network` is configured correctly for your network environment
 
-### Checing out vagrant files
+### Checking out vagrant files
 
 These scripts were tested on centos 6.4/6.5 Make sure you have any of these distros if you are going to use your own Vagrantfile’s. Alternatively if you want to get started right away you can clone existing ones from here [GitHub](https://github.com/thato-mokaila/vagrant)
 
-* /vagrant/provisions.sh
+* /vagrant/mq-provisions.sh
 * /vagrant/vagrant-ibm-mq/Vagrantfile
 
 
