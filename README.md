@@ -38,7 +38,7 @@ The following vagrant commands describes a typical process of using the vm. The 
 #### Use the following parameters to configure MQ explorer
 
 * Server hostname/ip address: (see vagrant ssh command above)
-* Queue Manager: DEV_QM
+* Queue Manager: LOCAL.QUE.MGR
 * Server connection channel: SYSTEM.DEF.SVRCONN
 * Server connection port: 1414
 * User: root
