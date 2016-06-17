@@ -36,7 +36,7 @@ else
     # system already installed and configures
     # start queue manager
     if type "/opt/mqm/bin/strmqm" > /dev/null; then
-        su -c "strmqm LOCAL.QUE.MGR" mqm
+        su -c "strmqm LOCALQUEMGR" mqm
     fi
     # display connaection details
     echo "# ******************************************* #" 
@@ -45,7 +45,7 @@ else
     echo "# mq host: `ifconfig eth1 | grep 'inet addr:' | cut -c21-33` #"
     echo "# mq connection channel: SYSTEM.DEF.SVRCONN #"
     echo "# mq connection port: 1414 #"
-    echo "# mq queue manager: LOCAL.QUE.MGR #"
+    echo "# mq queue manager: LOCALQUEMGR #"
     echo "# mq user: root #"
     echo "# mq password: vagrant #"
     echo "# ******************************************* #"
