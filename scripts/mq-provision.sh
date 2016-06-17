@@ -30,12 +30,23 @@ if [ ! -d "/var/chef" ]; then
     #chmod +x /root/init.sh
     
     # start chef client and install websphere mq
-    /usr/bin/chef-solo -c solo.rb -j node.json
+    /usr/bin/chef-solo -c solo.rb -j mq.json
 
 else
     # system already installed and configures
     # start queue manager
     if type "/opt/mqm/bin/strmqm" > /dev/null; then
-        su -c "strmqm DEV_QM" mqm
+        su -c "strmqm LOCAL.QUE.MRG" mqm
     fi
+    # display connaection details
+    echo "# ******************************************* #" 
+    echo "# MQ Connection Details: #" 
+    echo "# ******************************************* #" 
+    echo "# mq host: `ifconfig eth1 | grep 'inet addr:' | cut -c21-33` #"
+    echo "# mq connection channel: SYSTEM.DEF.SVRCONN #"
+    echo "# mq connection port: 1414 #"
+    echo "# mq queue manager: LOCAL.QUE.MRG #"
+    echo "# mq user: root #"
+    echo "# mq password: vagrant #"
+    echo "# ******************************************* #"
 fi
